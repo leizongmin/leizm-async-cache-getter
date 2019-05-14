@@ -1,0 +1,40 @@
+{
+  "name": "@leizm/async-cache-getter",
+  "version": "1.0.0",
+  "description": "异步获得数据，保证同一时间多个相同的请求只会实际执行一个",
+  "main": "dist/getter.js",
+  "typings": "dist/getter.d.ts",
+  "files": [
+    "dist/getter.js",
+    "dist/getter.d.ts"
+  ],
+  "scripts": {
+    "test": "mocha --require ts-node/register src/test.ts",
+    "benchmark": "ts-node src/benchmark.ts",
+    "compile": "rm -rf dist && tsc",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leizongmin/leizm-async-cache-getter.git"
+  },
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/leizm-async-cache-getter/issues"
+  },
+  "homepage": "https://github.com/leizongmin/leizm-async-cache-getter#readme",
+  "peerDependencies": {
+    "@types/node": "^12.0.0"
+  },
+  "devDependencies": {
+    "@leizm/benchmark": "^1.0.0",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
