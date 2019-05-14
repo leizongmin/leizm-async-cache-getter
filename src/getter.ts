@@ -16,7 +16,7 @@ export interface ITagItem {
   }>;
 }
 
-export default class AsyncCacheGetter {
+export class AsyncCacheGetter {
   protected tags: Map<string, ITagItem> = new Map();
   protected timeout: number;
 
@@ -66,3 +66,5 @@ export default class AsyncCacheGetter {
     });
   }
 }
+
+export default AsyncCacheGetter;
