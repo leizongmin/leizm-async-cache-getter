@@ -1,7 +1,14 @@
+/**
+ * AsyncCacheGetter 选项
+ */
 export interface IAsyncCacheGetterOptions {
+  /** 任务执行超时时间 */
   timeout: number;
 }
 
+/**
+ * 任务执行超时错误
+ */
 export class AsyncCacheGetterTimeoutError extends Error {
   public name: string = "AsyncCacheGetterTimeoutError";
   public code: string = "TIMEOUT";
@@ -20,10 +27,20 @@ export class AsyncCacheGetter {
   protected tags: Map<string, ITagItem> = new Map();
   protected timeout: number;
 
+  /**
+   * 创建 AsyncCacheGetter 实例
+   * 创建
+   * @param options
+   */
   constructor(options: IAsyncCacheGetterOptions) {
     this.timeout = options.timeout;
   }
 
+  /**
+   * 执行成功
+   * @param tag
+   * @param ret
+   */
   protected resolve(tag: string, ret: any) {
     const item = this.tags.get(tag);
     this.tags.delete(tag);
@@ -32,6 +49,11 @@ export class AsyncCacheGetter {
     }
   }
 
+  /**
+   * 执行失败
+   * @param tag
+   * @param err
+   */
   protected reject(tag: string, err: Error) {
     const item = this.tags.get(tag);
     this.tags.delete(tag);
